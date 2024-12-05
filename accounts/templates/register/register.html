@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load recaptcha_tags %}
+{% load static %}
+
+{% block head %}
+<title> User Registration</title>
+{% re_token_script "register" %}
+{% endblock %}
+
+
+
+{% block content %}
+<div class="back-f-1 back-3 flex-col f-v-cen f-h-cen ful-cover">
+
+    <h1 class="cen">Register</h1>
+
+    <div class="reg-box w-5 p-1">
+        <form class="t-cen" id="register_form " action="{% url 'accounts:register' %}" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+            <div>
+                {{ field }}
+            </div><br>
+            {% endfor %}
+            <input autocomplete="" type="hidden" id="g-recaptcha" name="g-recaptcha-response"
+                class="recaptcha-hidden-input">
+            <input class="btn btn-primary h-trans" type="submit" value="Sign in">
+        </form><br>
+        <div class="t-cen li-martl-1">
+            <a class="no-line" href=" {% url 'accounts:login' %}">Already Have An Account!</a>
+        </div>
+    </div>
+
+
+    {% for field in form %}
+    {% if field.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ field.errors }}
+    </div>
+    {% endif %}
+    {% endfor %}
+
+
+    {% if form.non_field_errors %}
+    <div class="t-cen">
+        {% for error in form.non_field_errors %}
+        <div class="alert alert-danger w-5">{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+
+    {% if messages %}
+    <div class="mess">
+        {% for message in messages %}
+        <div class="alert alert-info">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+</div>
+
+{% endblock content %}

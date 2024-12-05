@@ -1,0 +1,168 @@
+{% extends "content/base.html" %}
+{% load static %}
+{% load filters %}
+
+
+{% block head %}
+<title>Home</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=EB Garamond&Amagro">
+{% endblock head %}
+
+
+
+
+{% block content %}
+<nav>
+    <ul>
+        <li style="padding: 5px;" class="nav-btn"><i class="fa-solid fa-person-biking fa-2xl"></i></li>
+        <li class="nav-btn active"><button class="btn-nav" value="home">Home</button></li>
+        {% if user.is_authenticated %}
+        <li class="nav-btn profile"><button class="btn-nav" value="profile">Profile</button></li>
+        {% endif %}
+        <li class="nav-btn"><button class="btn-nav" value="counter">Calorie Counter</button></li>
+
+        <li class="nav-btn"><button class="btn-nav" value="bmi" onclick="">BMI</button></li>
+
+        {% if user.is_authenticated %}
+        <li class="nav-btn sign-btn"><a class="btn-nav" href="{% url 'accounts:logout' %}">Logout</a></li>
+        {% else %}
+        <li class="nav-btn sign-btn"><a class="btn-nav" style="display: inline-block;"
+                href="{% url 'accounts:login' %}">Sign-in</a>/<a class="btn-nav" style="display: inline-block;"
+                href="{% url 'accounts:register' %}">Sign-up</a></li>
+        {% endif %}
+    </ul>
+
+</nav>
+
+<div style="position: relative;">
+    <div id="welcome">
+        <h4>Welcome To Our Page</h4>
+        <h5>We Will Help You To Have A Healthy Body</h5>
+    </div>
+</div>
+
+
+
+
+<div id="first-image"></div>
+
+<div class="fl-col" id="home">
+    <div class="fl-col art-container">
+        {% for art in arts %}
+        <div class="fl-row art-content">
+
+            <div class="fl-col art-content-1" value="{{ art.id }}">
+                <h1 class="art-content-name">{{ art.headline }}</h1>
+                <hr>
+                <img class="content-img" src="{{ art.picture.url }}" alt="Content image" width="100%" height="100%"
+                    onclick="fetchArticle(this)">
+                <input type="hidden" value="{{ art.id }}">
+
+            </div>
+
+            <div class="fl-col art-content-2">
+                <div class="fl-row art-c-p">
+                    <strong>Last Update: </strong>
+                    <p>{{ art.last_update }}</p>
+                </div>
+                <div class="fl-row art-c-p">
+                    <strong>Author: </strong>
+                    <p>{{ art.author.first_name }} {{ art.author.last_name }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="art-text art-c-p t-font">
+            {{ art.content | truncate:100 }}
+            <button class="see-more" onclick="fetchArticle(this)"><span>Read more</span></button>
+            <input type="hidden" value="{{ art.id }}">
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<div id="single-art">
+    <div id="food-image" class="fl-row">
+        <img src="" alt="Oops It seems there is a problem with displaying the Image!" width="100%" height="100%">
+    </div>
+
+    <div id="single-content" class="fl-col">
+        <h1 id="art-name"></h1>
+        <div class="fl-row">
+            <strong>Last Update: </strong>
+            <div id="l-date"></div>
+        </div>
+        <div class="fl-row">
+            <strong>Author: </strong>
+            <div id="author"></div>
+        </div>
+        <p id="text" class="text-box">
+
+        </p>
+    </div>
+
+</div>
+
+
+
+<div id="counter" class="fl-row">
+    <div class="c-img-container fl-row ver-f-cen">
+        <div>
+            <img src="{% static 'content/images/counter-back.jpg' %}" alt="There is something wrong!" width="100%"
+                height="100%">
+        </div>
+    </div>
+
+    <div class="bmi-f-container fl-col ver-f-cen hor-f-cen">
+        <div>
+
+        </div>
+        <form class="bmi-form fl-col hor-f-cen" action="#">
+
+            <div class="fl-row">
+                <input class="form-control el-sp-top" type="number" id="age" name="age" placeholder="Age">
+            </div>
+
+            <div class="fl-row el-sp-top">
+                <label>Gender:</label>&emsp;
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="male"
+                        checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        Male
+                    </label>
+                </div>&emsp;
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                        value="female">
+                    <label class="form-check-label" for="exampleRadios2">
+                        FeMale
+                    </label>
+                </div>
+            </div>
+            <div>
+                <input class="form-control el-sp-top" type="number" id="weight" name="weight" placeholder="Weight(Kg)"
+                    min="1" max="500">
+            </div>
+            <div>
+                <input class="form-control el-sp-top" type="number" id="height" name="height" placeholder="Height(Cm)"
+                    min="1" max="300">
+            </div>
+            <input type="submit" class="btn btn-primary el-sp-top">
+        </form>
+    </div>
+</div>
+
+<div id="bmi">
+
+</div>
+
+<div id="profile">
+
+</div>
+<div>
+
+</div>
+
+{% endblock content %}

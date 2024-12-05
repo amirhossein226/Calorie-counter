@@ -1,0 +1,229 @@
+/* line 18, content/static/content/style.scss */
+body {
+  font-size: 100%;
+  font-family: sans-serif;
+  background-color: rgba(74, 99, 56, 0.721);
+  margin: 0;
+  padding: 0;
+  color: black;
+  transition: 0.5s; }
+
+/* line 28, content/static/content/style.scss */
+hr {
+  border-radius: 1rem;
+  border: 0.1rem solid #f6f5f5; }
+
+/* line 34, content/static/content/style.scss */
+* {
+  box-sizing: border-box; }
+
+/* line 38, content/static/content/style.scss */
+#counter-container,
+#bmi-container,
+#profile-container,
+#single-art {
+  display: none; }
+
+/* line 45, content/static/content/style.scss */
+.f-s-2 {
+  font-size: 1.5rem; }
+
+/* line 50, content/static/content/style.scss */
+nav {
+  display: none;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1; }
+
+/* line 58, content/static/content/style.scss */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background-color: rgba(56, 3, 31, 0.786);
+  border-radius: 0 0 0.5rem 0.5rem; }
+
+/* line 67, content/static/content/style.scss */
+li.nav-btn {
+  float: left;
+  display: inline; }
+
+/* line 72, content/static/content/style.scss */
+li.profile {
+  float: right; }
+
+/* line 76, content/static/content/style.scss */
+li.sign-btn {
+  float: right;
+  color: white; }
+
+/* line 81, content/static/content/style.scss */
+.btn-nav {
+  border: none;
+  font-weight: bolder;
+  display: block;
+  padding: 0.7rem 1rem;
+  text-decoration: none;
+  color: #c1c1c1;
+  transition: 0.5s;
+  background-color: rgba(240, 248, 255, 0); }
+
+/* line 94, content/static/content/style.scss */
+.active button {
+  color: black;
+  background-color: green; }
+
+/* line 99, content/static/content/style.scss */
+.active button:hover {
+  background-color: #259225; }
+
+/* line 103, content/static/content/style.scss */
+.btn-nav:hover:not(.active button) {
+  background-color: #c470be;
+  color: #1f1f1f; }
+
+/* these styling belongs to Home section of the page  */
+/* line 112, content/static/content/style.scss */
+.fl-col {
+  display: flex;
+  flex-direction: column; }
+
+/* line 116, content/static/content/style.scss */
+.fl-row {
+  display: flex;
+  flex-direction: row; }
+
+/* I defined the styles related to the articles(in home page) in below */
+/* line 121, content/static/content/style.scss */
+.art-container {
+  max-width: 70rem;
+  margin: auto; }
+
+/* line 126, content/static/content/style.scss */
+.art-content {
+  flex-wrap: wrap;
+  padding: 1rem; }
+
+/* line 133, content/static/content/style.scss */
+.art-content-1 {
+  flex: 60%;
+  margin: 1rem 1rem; }
+
+/* line 139, content/static/content/style.scss */
+.art-content-name {
+  font-family: "EN Garamond", Amagro, Serif;
+  text-align: center;
+  margin-bottom: 1rem; }
+
+/* line 145, content/static/content/style.scss */
+.art-content-img {
+  border-radius: 1rem;
+  margin-top: 1rem;
+  transition: 0.5s; }
+
+/* line 152, content/static/content/style.scss */
+.art-content-img:hover {
+  cursor: pointer;
+  transform: scale(1.02, 1.02); }
+
+/* line 157, content/static/content/style.scss */
+.art-content-2 {
+  flex: 15%;
+  align-items: left;
+  justify-content: center; }
+
+/* line 163, content/static/content/style.scss */
+.art-c-p {
+  font-size: smaller; }
+
+/* line 167, content/static/content/style.scss */
+div.art-c-p * {
+  margin: 0.5rem; }
+
+/* line 173, content/static/content/style.scss */
+.art-text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  flex: 100%;
+  text-align: justify;
+  padding: 1rem; }
+
+/* line 181, content/static/content/style.scss */
+button.see-more {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: rgba(240, 248, 255, 0);
+  text-decoration-line: underline;
+  position: relative; }
+
+/* line 190, content/static/content/style.scss */
+button.see-more span {
+  position: relative; }
+
+/* line 194, content/static/content/style.scss */
+button.see-more span::after {
+  content: "\00bb";
+  position: absolute;
+  right: -0.5rem;
+  opacity: 0;
+  transition: 0.5s; }
+
+/* line 202, content/static/content/style.scss */
+button.see-more:hover span::after {
+  opacity: 1;
+  right: -1rem; }
+
+/* line 208, content/static/content/style.scss */
+#first-image {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  background-image: url(/static/content/images/first.jpg); }
+
+/* line 213, content/static/content/style.scss */
+#welcome {
+  display: none;
+  position: absolute;
+  top: 25vh;
+  text-align: center;
+  left: 70%;
+  transform: translate(-50%, -50%); }
+
+/* line 222, content/static/content/style.scss */
+#welcome * {
+  font-size: 1.2rem; }
+
+@media screen and (max-width: 1145px) {
+  /* line 227, content/static/content/style.scss */
+  #welcome {
+    left: 50%; } }
+
+@media screen and (max-width: 570px) {
+  /* line 233, content/static/content/style.scss */
+  .art-content {
+    flex-direction: column; } }
+
+/* line 238, content/static/content/style.scss */
+#single-art {
+  font-size: smaller;
+  justify-content: center; }
+
+/* line 243, content/static/content/style.scss */
+#food-image img {
+  max-width: 35rem;
+  border-radius: 1rem;
+  margin: 3rem auto; }
+
+/* line 250, content/static/content/style.scss */
+#single-content {
+  align-items: center;
+  margin: 1rem; }
+
+/* line 255, content/static/content/style.scss */
+.text-box {
+  text-align: justify;
+  text-indent: 1rem;
+  margin: 2rem 1rem; }

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load static %}
+{% load socialaccount %}
+{% load recaptcha_tags %}
+
+{% block head %}
+<title>Login</title>
+{% re_token_script "login" %}
+{% endblock %}
+
+
+{% block content %}
+<div class="back-1 back-f-1 ful-cover flex-col f-v-cen  f-1">
+    <div class="t-cen">
+        <h1 class=" t-cen li-martl-1">Login</h1>
+        <div class="reg-box w-5 p-1 m-a">
+            <form class="li-mart t-cen" action="{% url 'accounts:login' %}" method="post" id="login_form">
+                {% csrf_token %}
+                {% for field in form %}
+                <div>
+                    {{ field }}
+                </div><br>
+                {% endfor %}
+                <input type="hidden" id="g-recaptcha" name="g-recaptcha-response" class="recaptcha-hidden-input">
+                <div class="flex-row f-v-cen">
+                    <input class="h-trans btn btn-primary li-martl-1" type="submit" value="Login">
+                    <a class="trans-5 h-trans btn btn-primary li-martl-1" href=" {% url 'content:home' %}">Back
+                        To
+                        Home</a>
+                </div>
+            </form>
+
+
+            <div>
+                <div>
+                    <a class="no-line" href="{% url 'accounts:register' %}">Don't Have An Account?</a>
+                </div>
+                <div>
+                    <a class="no-line" href="{% url 'accounts:password_reset' %}">Forgot Password</a>
+                </div>
+            </div><br>
+            <div>
+                <form style="position: relative;" action="{% provider_login_url 'google' %}?next=/" method="post">
+                    {% csrf_token %}
+                    <div class="logo-container">
+                        <img class="social-btn-logo" src="{% static 'accounts/images/google-logo.png' %}" alt="Google"
+                            width="30px" height="30px">
+                        <input type="submit" class="social-btn" value="Login With google">
+                    </div>
+                </form><br>
+            </div>
+        </div>
+    </div><br><br>
+
+    {% for field in form %}
+    {% if field.errors %}
+    <div class="t-cen mess alert alert-danger" role="alert">
+        {{ field.errors }}
+    </div>
+    {% endif %}
+
+    {% endfor %}
+
+    {% if form.non_field_errors %}
+    <div>
+        {% for error in form.non_field_errors %}
+        <div class="t-cen alert alert-danger" role="alert">{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if messages %}
+    <div>
+        {% for message in messages %}
+        <div style="width:50%;margin: auto;" class="t-cen alert alert-info">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+
+
+
+{% endblock content %}

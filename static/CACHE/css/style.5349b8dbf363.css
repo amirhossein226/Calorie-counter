@@ -1,0 +1,208 @@
+/* line 6, content/static/content/style.scss */
+body {
+  font-size: 100%;
+  background-color: rgba(74, 68, 68, 0.611);
+  margin: 0;
+  padding: 0;
+  color: black; }
+
+/* line 14, content/static/content/style.scss */
+hr {
+  border-radius: 1rem;
+  border: 0.1rem solid black; }
+
+/* line 20, content/static/content/style.scss */
+* {
+  box-sizing: border-box; }
+
+/* line 24, content/static/content/style.scss */
+#counter-container,
+#bmi-container,
+#profile-container {
+  display: none; }
+
+/* line 30, content/static/content/style.scss */
+.f-s-2 {
+  font-size: 1.5rem; }
+
+/* line 35, content/static/content/style.scss */
+.h-font {
+  font-family: Georgia, 'Times New Roman', Times, serif; }
+
+/* line 39, content/static/content/style.scss */
+.t-font {
+  font-family: Verdana, Geneva, Tahoma, sans-serif; }
+
+/* line 43, content/static/content/style.scss */
+nav {
+  display: none;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1; }
+
+/* line 51, content/static/content/style.scss */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background-color: rgba(56, 3, 31, 0.786);
+  border-radius: 0 0 0.5rem 0.5rem; }
+
+/* line 60, content/static/content/style.scss */
+li.nav-btn {
+  float: left;
+  display: inline; }
+
+/* line 65, content/static/content/style.scss */
+li.profile {
+  float: right; }
+
+/* line 69, content/static/content/style.scss */
+li.sign-btn {
+  float: right;
+  color: white; }
+
+/* line 74, content/static/content/style.scss */
+.btn-nav {
+  border: none;
+  font-weight: bolder;
+  display: block;
+  padding: 0.7rem 1rem;
+  text-decoration: none;
+  color: #c1c1c1;
+  transition: 0.5s;
+  background-color: rgba(240, 248, 255, 0); }
+
+/* line 87, content/static/content/style.scss */
+.active button {
+  color: black;
+  background-color: green; }
+
+/* line 92, content/static/content/style.scss */
+.active button:hover {
+  background-color: #259225; }
+
+/* line 96, content/static/content/style.scss */
+.btn-nav:hover:not(.active button) {
+  background-color: #c470be;
+  color: #1f1f1f; }
+
+/* these styling belongs to Home section of the page  */
+/* line 104, content/static/content/style.scss */
+#home-container {
+  display: flex;
+  flex-direction: column; }
+
+/* I defined the styles related to the articles(in home page) in below */
+/* line 109, content/static/content/style.scss */
+.art-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 70rem;
+  margin: auto; }
+
+/* line 115, content/static/content/style.scss */
+.art-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1rem; }
+
+/* line 122, content/static/content/style.scss */
+.art-content-1 {
+  flex: 60%;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 1rem; }
+
+/* line 129, content/static/content/style.scss */
+.art-content-name {
+  text-align: center;
+  margin-bottom: 1rem; }
+
+/* line 134, content/static/content/style.scss */
+.art-content-img {
+  border-radius: 1rem;
+  margin-top: 1rem;
+  transition: 0.5s; }
+
+/* line 141, content/static/content/style.scss */
+.art-content-img:hover {
+  cursor: pointer;
+  transform: scale(1.02, 1.02); }
+
+/* line 146, content/static/content/style.scss */
+.art-content-2 {
+  flex: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+/* line 153, content/static/content/style.scss */
+div.art-c-p {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  align-items: center; }
+
+/* line 160, content/static/content/style.scss */
+div.art-c-p * {
+  align-items: center;
+  margin: 10px; }
+
+/* line 166, content/static/content/style.scss */
+.art-text {
+  flex: 100%;
+  text-align: justify;
+  padding: 1rem; }
+
+/* line 173, content/static/content/style.scss */
+button.see-more {
+  border: none;
+  background-color: rgba(240, 248, 255, 0);
+  text-decoration-line: underline;
+  position: relative; }
+
+/* line 180, content/static/content/style.scss */
+button.see-more span {
+  position: relative; }
+
+/* line 184, content/static/content/style.scss */
+button.see-more span::after {
+  content: "\00bb";
+  position: absolute;
+  right: -0.5rem;
+  opacity: 0;
+  transition: 0.5s; }
+
+/* line 192, content/static/content/style.scss */
+button.see-more:hover span::after {
+  opacity: 1;
+  right: -1rem; }
+
+/* line 198, content/static/content/style.scss */
+#first-image {
+  height: 100vh;
+  background: #6cbe91 url(/static/content/images/sport.jpg) no-repeat center bottom;
+  background-size: cover; }
+
+/* line 205, content/static/content/style.scss */
+#welcome {
+  display: none;
+  position: fixed;
+  top: 25vh;
+  text-align: center;
+  left: 70%;
+  transform: translate(-50%, -50%); }
+
+/* line 214, content/static/content/style.scss */
+#welcome * {
+  font-size: 1.2rem; }
+
+@media screen and (max-width: 1145px) {
+  /* line 219, content/static/content/style.scss */
+  #welcome {
+    left: 50%; } }

@@ -1,0 +1,312 @@
+@mixin fl($dir: row) {
+    display: flex;
+    flex-direction: $dir;
+}
+
+@mixin in-els($flo) {
+    display: inline;
+    float: $flo;
+}
+
+@mixin cent-x-pos() {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin back-img($hei, $rep, $size, $pos) {
+    height: $hei;
+    background-repeat: $rep;
+    background-size: $size;
+    background-position: $pos;
+}
+
+
+
+$tit-font: "EN Garamond", Amagro, Serif;
+$txt-font: Verdana, Geneva, Tahoma, sans-serif;
+
+.fl-col {
+    @include fl(column);
+}
+
+.fl-row {
+    @include fl();
+}
+
+body {
+    font-size: 100%;
+    font-family: sans-serif;
+    background-color: rgba(83, 86, 83, 0.721);
+    margin: 0;
+    padding: 0;
+    color: rgb(0, 0, 0);
+    transition: 0.5s;
+}
+
+hr {
+    border-radius: 1rem;
+    border: 0.1rem solid rgb(246, 245, 245);
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+#counter,
+#bmi-container,
+#profile-container,
+#single-art {
+    display: none;
+}
+
+.f-s-2 {
+    font-size: 1.5rem;
+}
+
+
+nav {
+    display: none;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background-color: rgba(56, 3, 31, 0.786);
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+li.nav-btn {
+    float: left;
+    display: inline;
+}
+
+li.profile {
+    float: right;
+}
+
+li.sign-btn {
+    float: right;
+    color: white;
+}
+
+.btn-nav {
+    border: none;
+    font-weight: bolder;
+    display: block;
+    padding: 0.7rem 1rem;
+    text-decoration: none;
+    color: rgb(193, 193, 193);
+    transition: 0.5s;
+    background-color: rgba(240, 248, 255, 0);
+
+}
+
+
+.active button {
+    color: black;
+    background-color: green;
+}
+
+.active button:hover {
+    background-color: rgb(37, 146, 37);
+}
+
+.btn-nav:hover:not(.active button) {
+    background-color: rgb(196, 112, 190);
+
+    color: rgb(31, 31, 31);
+}
+
+
+
+/* these styling belongs to Home section of the page  */
+
+/* I defined the styles related to the articles(in home page) in below */
+.art-container {
+    max-width: 70rem;
+    margin: auto;
+}
+
+.art-content {
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+
+.art-content-1 {
+    flex: 60%;
+    margin: 1rem 1rem;
+}
+
+
+.art-content-name {
+    font-family: $tit-font;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.content-img {
+    border-radius: 1rem;
+    margin: 1rem auto;
+    transition: 0.5s;
+    max-width: 760px;
+}
+
+.content-img:hover {
+    cursor: pointer;
+    transform: scale(1.02, 1.02);
+}
+
+.art-content-2 {
+    flex: 15%;
+    align-items: left;
+    justify-content: center;
+}
+
+.art-c-p {
+    font-size: smaller;
+}
+
+div.art-c-p * {
+    margin: 0.5rem;
+}
+
+
+
+.art-text {
+    font-family: $txt-font;
+    flex: 100%;
+    text-align: justify;
+    padding: 1rem;
+}
+
+
+button.see-more {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: rgba(240, 248, 255, 0);
+    text-decoration-line: underline;
+    position: relative;
+}
+
+button.see-more span {
+    position: relative;
+}
+
+button.see-more span::after {
+    content: "\00bb";
+    position: absolute;
+    right: -0.5rem;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+button.see-more:hover span::after {
+    opacity: 1;
+    right: -1rem;
+}
+
+
+#first-image {
+    @include back-img(100vh, no-repeat, cover, center bottom);
+    background-image: url(./images/sport.jpg);
+}
+
+#welcome {
+    display: none;
+    position: absolute;
+    top: 25vh;
+    text-align: center;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
+
+#welcome * {
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width:1145px) {
+    #welcome {
+        left: 50%;
+    }
+}
+
+@media screen and(max-width:570px) {
+    .art-content {
+        flex-direction: column;
+    }
+}
+
+#single-art {
+    font-size: smaller;
+    justify-content: center;
+}
+
+#food-image img {
+    max-width: 35rem;
+    border-radius: 1rem;
+    margin: 3rem auto;
+
+}
+
+#single-content {
+    align-items: center;
+    margin: 1rem;
+}
+
+.text-box {
+    text-align: justify;
+    text-indent: 1rem;
+    margin: 2rem 1rem;
+    line-height: 1.5rem;
+}
+
+#counter {
+    width: 100%;
+    position: relative;
+    margin-top: 2rem;
+    height: 100vh;
+}
+
+.cen-el {
+    margin: auto;
+}
+
+.el-sp-top {
+    margin-top: 1rem;
+}
+
+.c-img-container {
+    flex: 50%;
+    padding: 1rem;
+}
+
+.bmi-f-container {
+    flex: 50%;
+    padding: 1rem;
+}
+
+.ver-f-cen {
+    align-items: center;
+}
+
+.hor-f-cen {
+    justify-content: center;
+}
+
+.bmi-form {
+    max-width: 100%;
+    padding: 1rem;
+    border: 0.05rem solid rgb(98, 98, 114);
+    border-radius: 1rem;
+    box-shadow: 0 6px 18px 0;
+}

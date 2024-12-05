@@ -1,0 +1,156 @@
+body {
+    padding: 0;
+}
+
+.f-1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+input,
+input[type=submit] {
+    transition: 0.5s;
+}
+
+*::placeholder {
+    transition: 0.5s;
+    color: black;
+}
+
+.back-f-1 {
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.back-1 {
+    background-image: url(images/login-back.jpg);
+
+}
+
+.back-2 {
+    background-image: url(images/pass-confirm.jpg);
+}
+
+.back-3 {
+    background-image: url(images/reg-back.jpg);
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.f-v-cen {
+    justify-content: center;
+}
+
+.f-h-cen {
+    align-items: center;
+}
+
+.t-cen {
+    text-align: center;
+}
+
+.ful-cover {
+    height: 100vh;
+}
+
+
+.li-mart {
+    margin: 1rem 0;
+}
+
+.li-martl-1 {
+    margin: 1rem;
+}
+
+/* .w-full {
+    width: 100%;
+} */
+
+.w-5 {
+    max-width: 450px;
+
+}
+
+.m-a {
+    margin: auto;
+}
+
+
+.p-1 {
+    padding: 0;
+}
+
+.reg-box {
+
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0px 6px 18px 6px;
+    background-color: rgba(240, 248, 255, 0);
+    width: 100%;
+}
+
+.input-1 {
+    border: none;
+    border-bottom: 2px solid black;
+    background-color: rgba(240, 248, 255, 0);
+    outline: none;
+    width: 80%;
+}
+
+.holder-1:focus::placeholder {
+    color: rgba(0, 0, 0, 0.348);
+}
+
+.input-1:focus {
+    width: 87%;
+}
+
+.h-trans:hover {
+
+    transform: scale(0.9, 0.9);
+}
+
+.no-line {
+    text-decoration: none;
+}
+
+.social-btn {
+    width: 100%;
+    background-color: rgba(103, 180, 248, 0.486);
+    border-radius: 2rem;
+    border: none;
+    height: 2.6rem;
+}
+
+.social-btn:hover {
+    background-color: rgb(103, 180, 248);
+}
+
+.social-btn-logo {
+    position: absolute;
+    left: 10%;
+    top: 15%;
+}
+
+.logo-container {
+    padding: 0;
+    width: 85%;
+    margin: auto;
+}
+
+.trans-5 {
+    transition: 0.5s;
+}
